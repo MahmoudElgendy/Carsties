@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AuctionService.Data.Migrations
 {
     [DbContext(typeof(AuctionDbContext))]
-    [Migration("20240713002210_InitialMigration")]
+    [Migration("20240713174358_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -81,11 +81,14 @@ namespace AuctionService.Data.Migrations
                     b.Property<string>("Make")
                         .HasColumnType("text");
 
-                    b.Property<int>("Milage")
+                    b.Property<int>("Mileage")
                         .HasColumnType("integer");
 
                     b.Property<string>("Model")
                         .HasColumnType("text");
+
+                    b.Property<int>("Year")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
