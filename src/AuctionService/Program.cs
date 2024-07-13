@@ -1,3 +1,6 @@
+using AuctionService.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace AuctionService
 {
     public class Program
@@ -7,6 +10,10 @@ namespace AuctionService
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContext<AuctionDbContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
 
             builder.Services.AddControllers();
 
